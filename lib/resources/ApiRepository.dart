@@ -10,6 +10,10 @@ class ApiRepository {
   Future<List<String>> fetchCaetgoriesList() {
     return _provider.fetchAllCategories();
   }
+
+  Future<List<Product>> fetchProductsByCategory(String category) {
+    return _provider.fetchProductByCategory(category);
+  }
 }
 
 class NetworkError extends Error {}

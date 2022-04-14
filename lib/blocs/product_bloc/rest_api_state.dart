@@ -11,5 +11,7 @@ abstract class RestApiState with _$RestApiState {
       ProductListContent;
   const factory RestApiState.fetchingCategories(List<String>? categories) =
       CategoriesListContent;
+  const factory RestApiState.fetchProductsByCategory(List<Product> products) =
+      ProductsByCategory;
   const factory RestApiState.error(String? message) = RestApiError;
 }

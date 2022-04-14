@@ -25,6 +25,12 @@ class _$RestApiEventTearOff {
   CategoriesListEvent fetchCategoryList() {
     return const CategoriesListEvent();
   }
+
+  ProductsByCategoryEvent fetchProductsByCategory(String category) {
+    return ProductsByCategoryEvent(
+      category,
+    );
+  }
 }
 
 /// @nodoc
@@ -36,18 +42,21 @@ mixin _$RestApiEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() fetchProductList,
     required TResult Function() fetchCategoryList,
+    required TResult Function(String category) fetchProductsByCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? fetchProductList,
     TResult Function()? fetchCategoryList,
+    TResult Function(String category)? fetchProductsByCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchProductList,
     TResult Function()? fetchCategoryList,
+    TResult Function(String category)? fetchProductsByCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,18 +64,22 @@ mixin _$RestApiEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ProductListEvent value) fetchProductList,
     required TResult Function(CategoriesListEvent value) fetchCategoryList,
+    required TResult Function(ProductsByCategoryEvent value)
+        fetchProductsByCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProductListEvent value)? fetchProductList,
     TResult Function(CategoriesListEvent value)? fetchCategoryList,
+    TResult Function(ProductsByCategoryEvent value)? fetchProductsByCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProductListEvent value)? fetchProductList,
     TResult Function(CategoriesListEvent value)? fetchCategoryList,
+    TResult Function(ProductsByCategoryEvent value)? fetchProductsByCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,6 +144,7 @@ class _$ProductListEvent extends ProductListEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() fetchProductList,
     required TResult Function() fetchCategoryList,
+    required TResult Function(String category) fetchProductsByCategory,
   }) {
     return fetchProductList();
   }
@@ -140,6 +154,7 @@ class _$ProductListEvent extends ProductListEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? fetchProductList,
     TResult Function()? fetchCategoryList,
+    TResult Function(String category)? fetchProductsByCategory,
   }) {
     return fetchProductList?.call();
   }
@@ -149,6 +164,7 @@ class _$ProductListEvent extends ProductListEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchProductList,
     TResult Function()? fetchCategoryList,
+    TResult Function(String category)? fetchProductsByCategory,
     required TResult orElse(),
   }) {
     if (fetchProductList != null) {
@@ -162,6 +178,8 @@ class _$ProductListEvent extends ProductListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ProductListEvent value) fetchProductList,
     required TResult Function(CategoriesListEvent value) fetchCategoryList,
+    required TResult Function(ProductsByCategoryEvent value)
+        fetchProductsByCategory,
   }) {
     return fetchProductList(this);
   }
@@ -171,6 +189,7 @@ class _$ProductListEvent extends ProductListEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProductListEvent value)? fetchProductList,
     TResult Function(CategoriesListEvent value)? fetchCategoryList,
+    TResult Function(ProductsByCategoryEvent value)? fetchProductsByCategory,
   }) {
     return fetchProductList?.call(this);
   }
@@ -180,6 +199,7 @@ class _$ProductListEvent extends ProductListEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProductListEvent value)? fetchProductList,
     TResult Function(CategoriesListEvent value)? fetchCategoryList,
+    TResult Function(ProductsByCategoryEvent value)? fetchProductsByCategory,
     required TResult orElse(),
   }) {
     if (fetchProductList != null) {
@@ -237,6 +257,7 @@ class _$CategoriesListEvent extends CategoriesListEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() fetchProductList,
     required TResult Function() fetchCategoryList,
+    required TResult Function(String category) fetchProductsByCategory,
   }) {
     return fetchCategoryList();
   }
@@ -246,6 +267,7 @@ class _$CategoriesListEvent extends CategoriesListEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? fetchProductList,
     TResult Function()? fetchCategoryList,
+    TResult Function(String category)? fetchProductsByCategory,
   }) {
     return fetchCategoryList?.call();
   }
@@ -255,6 +277,7 @@ class _$CategoriesListEvent extends CategoriesListEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchProductList,
     TResult Function()? fetchCategoryList,
+    TResult Function(String category)? fetchProductsByCategory,
     required TResult orElse(),
   }) {
     if (fetchCategoryList != null) {
@@ -268,6 +291,8 @@ class _$CategoriesListEvent extends CategoriesListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ProductListEvent value) fetchProductList,
     required TResult Function(CategoriesListEvent value) fetchCategoryList,
+    required TResult Function(ProductsByCategoryEvent value)
+        fetchProductsByCategory,
   }) {
     return fetchCategoryList(this);
   }
@@ -277,6 +302,7 @@ class _$CategoriesListEvent extends CategoriesListEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProductListEvent value)? fetchProductList,
     TResult Function(CategoriesListEvent value)? fetchCategoryList,
+    TResult Function(ProductsByCategoryEvent value)? fetchProductsByCategory,
   }) {
     return fetchCategoryList?.call(this);
   }
@@ -286,6 +312,7 @@ class _$CategoriesListEvent extends CategoriesListEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProductListEvent value)? fetchProductList,
     TResult Function(CategoriesListEvent value)? fetchCategoryList,
+    TResult Function(ProductsByCategoryEvent value)? fetchProductsByCategory,
     required TResult orElse(),
   }) {
     if (fetchCategoryList != null) {
@@ -298,4 +325,148 @@ class _$CategoriesListEvent extends CategoriesListEvent {
 abstract class CategoriesListEvent extends RestApiEvent {
   const factory CategoriesListEvent() = _$CategoriesListEvent;
   const CategoriesListEvent._() : super._();
+}
+
+/// @nodoc
+abstract class $ProductsByCategoryEventCopyWith<$Res> {
+  factory $ProductsByCategoryEventCopyWith(ProductsByCategoryEvent value,
+          $Res Function(ProductsByCategoryEvent) then) =
+      _$ProductsByCategoryEventCopyWithImpl<$Res>;
+  $Res call({String category});
+}
+
+/// @nodoc
+class _$ProductsByCategoryEventCopyWithImpl<$Res>
+    extends _$RestApiEventCopyWithImpl<$Res>
+    implements $ProductsByCategoryEventCopyWith<$Res> {
+  _$ProductsByCategoryEventCopyWithImpl(ProductsByCategoryEvent _value,
+      $Res Function(ProductsByCategoryEvent) _then)
+      : super(_value, (v) => _then(v as ProductsByCategoryEvent));
+
+  @override
+  ProductsByCategoryEvent get _value => super._value as ProductsByCategoryEvent;
+
+  @override
+  $Res call({
+    Object? category = freezed,
+  }) {
+    return _then(ProductsByCategoryEvent(
+      category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ProductsByCategoryEvent extends ProductsByCategoryEvent {
+  const _$ProductsByCategoryEvent(this.category) : super._();
+
+  @override
+  final String category;
+
+  @override
+  String toString() {
+    return 'RestApiEvent.fetchProductsByCategory(category: $category)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProductsByCategoryEvent &&
+            const DeepCollectionEquality().equals(other.category, category));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(category));
+
+  @JsonKey(ignore: true)
+  @override
+  $ProductsByCategoryEventCopyWith<ProductsByCategoryEvent> get copyWith =>
+      _$ProductsByCategoryEventCopyWithImpl<ProductsByCategoryEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchProductList,
+    required TResult Function() fetchCategoryList,
+    required TResult Function(String category) fetchProductsByCategory,
+  }) {
+    return fetchProductsByCategory(category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? fetchProductList,
+    TResult Function()? fetchCategoryList,
+    TResult Function(String category)? fetchProductsByCategory,
+  }) {
+    return fetchProductsByCategory?.call(category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchProductList,
+    TResult Function()? fetchCategoryList,
+    TResult Function(String category)? fetchProductsByCategory,
+    required TResult orElse(),
+  }) {
+    if (fetchProductsByCategory != null) {
+      return fetchProductsByCategory(category);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProductListEvent value) fetchProductList,
+    required TResult Function(CategoriesListEvent value) fetchCategoryList,
+    required TResult Function(ProductsByCategoryEvent value)
+        fetchProductsByCategory,
+  }) {
+    return fetchProductsByCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ProductListEvent value)? fetchProductList,
+    TResult Function(CategoriesListEvent value)? fetchCategoryList,
+    TResult Function(ProductsByCategoryEvent value)? fetchProductsByCategory,
+  }) {
+    return fetchProductsByCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProductListEvent value)? fetchProductList,
+    TResult Function(CategoriesListEvent value)? fetchCategoryList,
+    TResult Function(ProductsByCategoryEvent value)? fetchProductsByCategory,
+    required TResult orElse(),
+  }) {
+    if (fetchProductsByCategory != null) {
+      return fetchProductsByCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProductsByCategoryEvent extends RestApiEvent {
+  const factory ProductsByCategoryEvent(String category) =
+      _$ProductsByCategoryEvent;
+  const ProductsByCategoryEvent._() : super._();
+
+  String get category;
+  @JsonKey(ignore: true)
+  $ProductsByCategoryEventCopyWith<ProductsByCategoryEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }

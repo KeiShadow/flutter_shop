@@ -34,6 +34,12 @@ class _$RestApiStateTearOff {
     );
   }
 
+  ProductsByCategory fetchProductsByCategory(List<Product> products) {
+    return ProductsByCategory(
+      products,
+    );
+  }
+
   RestApiError error(String? message) {
     return RestApiError(
       message,
@@ -51,6 +57,7 @@ mixin _$RestApiState {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
+    required TResult Function(List<Product> products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +66,7 @@ mixin _$RestApiState {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +75,7 @@ mixin _$RestApiState {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) =>
@@ -76,6 +85,7 @@ mixin _$RestApiState {
     required TResult Function(LoadingState value) loading,
     required TResult Function(ProductListContent value) fetchingProducts,
     required TResult Function(CategoriesListContent value) fetchingCategories,
+    required TResult Function(ProductsByCategory value) fetchProductsByCategory,
     required TResult Function(RestApiError value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -84,6 +94,7 @@ mixin _$RestApiState {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -92,6 +103,7 @@ mixin _$RestApiState {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
     required TResult orElse(),
   }) =>
@@ -157,6 +169,7 @@ class _$LoadingState extends LoadingState {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
+    required TResult Function(List<Product> products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return loading();
@@ -168,6 +181,7 @@ class _$LoadingState extends LoadingState {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return loading?.call();
@@ -179,6 +193,7 @@ class _$LoadingState extends LoadingState {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -194,6 +209,7 @@ class _$LoadingState extends LoadingState {
     required TResult Function(LoadingState value) loading,
     required TResult Function(ProductListContent value) fetchingProducts,
     required TResult Function(CategoriesListContent value) fetchingCategories,
+    required TResult Function(ProductsByCategory value) fetchProductsByCategory,
     required TResult Function(RestApiError value) error,
   }) {
     return loading(this);
@@ -205,6 +221,7 @@ class _$LoadingState extends LoadingState {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
   }) {
     return loading?.call(this);
@@ -216,6 +233,7 @@ class _$LoadingState extends LoadingState {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
     required TResult orElse(),
   }) {
@@ -299,6 +317,7 @@ class _$ProductListContent extends ProductListContent {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
+    required TResult Function(List<Product> products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return fetchingProducts(product);
@@ -310,6 +329,7 @@ class _$ProductListContent extends ProductListContent {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return fetchingProducts?.call(product);
@@ -321,6 +341,7 @@ class _$ProductListContent extends ProductListContent {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -336,6 +357,7 @@ class _$ProductListContent extends ProductListContent {
     required TResult Function(LoadingState value) loading,
     required TResult Function(ProductListContent value) fetchingProducts,
     required TResult Function(CategoriesListContent value) fetchingCategories,
+    required TResult Function(ProductsByCategory value) fetchProductsByCategory,
     required TResult Function(RestApiError value) error,
   }) {
     return fetchingProducts(this);
@@ -347,6 +369,7 @@ class _$ProductListContent extends ProductListContent {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
   }) {
     return fetchingProducts?.call(this);
@@ -358,6 +381,7 @@ class _$ProductListContent extends ProductListContent {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
     required TResult orElse(),
   }) {
@@ -449,6 +473,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
+    required TResult Function(List<Product> products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return fetchingCategories(categories);
@@ -460,6 +485,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return fetchingCategories?.call(categories);
@@ -471,6 +497,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -486,6 +513,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     required TResult Function(LoadingState value) loading,
     required TResult Function(ProductListContent value) fetchingProducts,
     required TResult Function(CategoriesListContent value) fetchingCategories,
+    required TResult Function(ProductsByCategory value) fetchProductsByCategory,
     required TResult Function(RestApiError value) error,
   }) {
     return fetchingCategories(this);
@@ -497,6 +525,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
   }) {
     return fetchingCategories?.call(this);
@@ -508,6 +537,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
     required TResult orElse(),
   }) {
@@ -526,6 +556,160 @@ abstract class CategoriesListContent extends RestApiState {
   List<String>? get categories;
   @JsonKey(ignore: true)
   $CategoriesListContentCopyWith<CategoriesListContent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProductsByCategoryCopyWith<$Res> {
+  factory $ProductsByCategoryCopyWith(
+          ProductsByCategory value, $Res Function(ProductsByCategory) then) =
+      _$ProductsByCategoryCopyWithImpl<$Res>;
+  $Res call({List<Product> products});
+}
+
+/// @nodoc
+class _$ProductsByCategoryCopyWithImpl<$Res>
+    extends _$RestApiStateCopyWithImpl<$Res>
+    implements $ProductsByCategoryCopyWith<$Res> {
+  _$ProductsByCategoryCopyWithImpl(
+      ProductsByCategory _value, $Res Function(ProductsByCategory) _then)
+      : super(_value, (v) => _then(v as ProductsByCategory));
+
+  @override
+  ProductsByCategory get _value => super._value as ProductsByCategory;
+
+  @override
+  $Res call({
+    Object? products = freezed,
+  }) {
+    return _then(ProductsByCategory(
+      products == freezed
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ProductsByCategory extends ProductsByCategory {
+  const _$ProductsByCategory(this.products) : super._();
+
+  @override
+  final List<Product> products;
+
+  @override
+  String toString() {
+    return 'RestApiState.fetchProductsByCategory(products: $products)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProductsByCategory &&
+            const DeepCollectionEquality().equals(other.products, products));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(products));
+
+  @JsonKey(ignore: true)
+  @override
+  $ProductsByCategoryCopyWith<ProductsByCategory> get copyWith =>
+      _$ProductsByCategoryCopyWithImpl<ProductsByCategory>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<Product> product) fetchingProducts,
+    required TResult Function(List<String>? categories) fetchingCategories,
+    required TResult Function(List<Product> products) fetchProductsByCategory,
+    required TResult Function(String? message) error,
+  }) {
+    return fetchProductsByCategory(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<Product> product)? fetchingProducts,
+    TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(String? message)? error,
+  }) {
+    return fetchProductsByCategory?.call(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<Product> product)? fetchingProducts,
+    TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
+  }) {
+    if (fetchProductsByCategory != null) {
+      return fetchProductsByCategory(products);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(ProductListContent value) fetchingProducts,
+    required TResult Function(CategoriesListContent value) fetchingCategories,
+    required TResult Function(ProductsByCategory value) fetchProductsByCategory,
+    required TResult Function(RestApiError value) error,
+  }) {
+    return fetchProductsByCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoadingState value)? loading,
+    TResult Function(ProductListContent value)? fetchingProducts,
+    TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
+    TResult Function(RestApiError value)? error,
+  }) {
+    return fetchProductsByCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadingState value)? loading,
+    TResult Function(ProductListContent value)? fetchingProducts,
+    TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
+    TResult Function(RestApiError value)? error,
+    required TResult orElse(),
+  }) {
+    if (fetchProductsByCategory != null) {
+      return fetchProductsByCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProductsByCategory extends RestApiState {
+  const factory ProductsByCategory(List<Product> products) =
+      _$ProductsByCategory;
+  const ProductsByCategory._() : super._();
+
+  List<Product> get products;
+  @JsonKey(ignore: true)
+  $ProductsByCategoryCopyWith<ProductsByCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -596,6 +780,7 @@ class _$RestApiError extends RestApiError {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
+    required TResult Function(List<Product> products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return error(message);
@@ -607,6 +792,7 @@ class _$RestApiError extends RestApiError {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return error?.call(message);
@@ -618,6 +804,7 @@ class _$RestApiError extends RestApiError {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
+    TResult Function(List<Product> products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -633,6 +820,7 @@ class _$RestApiError extends RestApiError {
     required TResult Function(LoadingState value) loading,
     required TResult Function(ProductListContent value) fetchingProducts,
     required TResult Function(CategoriesListContent value) fetchingCategories,
+    required TResult Function(ProductsByCategory value) fetchProductsByCategory,
     required TResult Function(RestApiError value) error,
   }) {
     return error(this);
@@ -644,6 +832,7 @@ class _$RestApiError extends RestApiError {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
   }) {
     return error?.call(this);
@@ -655,6 +844,7 @@ class _$RestApiError extends RestApiError {
     TResult Function(LoadingState value)? loading,
     TResult Function(ProductListContent value)? fetchingProducts,
     TResult Function(CategoriesListContent value)? fetchingCategories,
+    TResult Function(ProductsByCategory value)? fetchProductsByCategory,
     TResult Function(RestApiError value)? error,
     required TResult orElse(),
   }) {

@@ -9,6 +9,9 @@ class ApiProvider {
   final String allCategoriesListUrl =
       'https://fakestoreapi.com/products/categories';
 
+  final String productsByCategoryUrl =
+      "https://fakestoreapi.com/products/category/";
+
   //Fetching all products
   Future<List<Product>> fetchProductList() async {
     List<Product> prodList = [];
@@ -36,5 +39,21 @@ class ApiProvider {
       print("Exception occured: $error stackTrace: $stacktrace");
       return List.empty();
     }
+  }
+
+  Future<List<Product>> fetchProductByCategory(String category) async {
+    List<Product> prodList = [];
+    try {
+      Response response = await _dio.get('$productsByCategoryUrl$category');
+
+      for (var prod in response.data) {
+        prodList.add(Product.fromJson(prod));
+      }
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stackTrace: $stacktrace");
+      prodList.add(const Product(error: "Data not found / Connection issue"));
+      return prodList;
+    }
+    return prodList;
   }
 }
