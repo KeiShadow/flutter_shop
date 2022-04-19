@@ -5,15 +5,13 @@ import 'package:flutter_shop/blocs/product_bloc/rest_api_bloc.dart';
 import 'package:flutter_shop/blocs/product_bloc/rest_api_event.dart';
 import 'package:flutter_shop/blocs/product_bloc/rest_api_state.dart';
 import 'package:flutter_shop/models/Product/product_model.dart';
-import 'package:flutter_shop/screens/ProductsList.dart';
-import 'package:flutter_shop/utilities/StringExtension.dart';
+import 'package:flutter_shop/screens/products_list.dart';
+import 'package:flutter_shop/utilities/Utils.dart';
 import 'package:getwidget/colors/gf_color.dart';
 import 'package:getwidget/components/carousel/gf_carousel.dart';
 import 'package:getwidget/components/image/gf_image_overlay.dart';
 import 'package:getwidget/components/typography/gf_typography.dart';
 import 'package:getwidget/types/gf_typography_type.dart';
-
-import '../utilities/Images.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -75,7 +73,6 @@ class _DashboardState extends State<Dashboard> {
             if (state is LoadingState) {
               return _buildLoading();
             } else if (state is CategoriesListContent) {
-              print(state.categories.toString());
               return _buildGridView(state.categories!.reversed.toList());
             } else if (state is RestApiError) {
               return Container();
@@ -108,6 +105,12 @@ class _DashboardState extends State<Dashboard> {
                             MaterialPageRoute(
                                 builder: (context) => ProductLists(
                                       category: e,
+                                      productTypes: const [
+                                        "All",
+                                        "Jacket",
+                                        "T-shirt",
+                                        "Boots"
+                                      ],
                                     )),
                           );
                         },
@@ -124,13 +127,13 @@ class _DashboardState extends State<Dashboard> {
                             child: GFImageOverlay(
                               borderRadius: BorderRadius.circular(8.0),
                               boxFit: BoxFit.cover,
-                              image: Images.getImageByCategory(e),
+                              image: Utils.getImageByCategory(e),
                               child: Align(
                                 alignment: Alignment.bottomRight,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    e.capitalize(),
+                                    Utils.getCategoryTitle(e),
                                     style: const TextStyle(color: Colors.white),
                                   ),
                                 ),

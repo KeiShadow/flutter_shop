@@ -34,7 +34,7 @@ class _$RestApiStateTearOff {
     );
   }
 
-  ProductsByCategory fetchProductsByCategory(List<Product> products) {
+  ProductsByCategory fetchProductsByCategory(List<Product>? products) {
     return ProductsByCategory(
       products,
     );
@@ -57,7 +57,7 @@ mixin _$RestApiState {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
-    required TResult Function(List<Product> products) fetchProductsByCategory,
+    required TResult Function(List<Product>? products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -66,7 +66,7 @@ mixin _$RestApiState {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -75,7 +75,7 @@ mixin _$RestApiState {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) =>
@@ -169,7 +169,7 @@ class _$LoadingState extends LoadingState {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
-    required TResult Function(List<Product> products) fetchProductsByCategory,
+    required TResult Function(List<Product>? products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return loading();
@@ -181,7 +181,7 @@ class _$LoadingState extends LoadingState {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return loading?.call();
@@ -193,7 +193,7 @@ class _$LoadingState extends LoadingState {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -317,7 +317,7 @@ class _$ProductListContent extends ProductListContent {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
-    required TResult Function(List<Product> products) fetchProductsByCategory,
+    required TResult Function(List<Product>? products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return fetchingProducts(product);
@@ -329,7 +329,7 @@ class _$ProductListContent extends ProductListContent {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return fetchingProducts?.call(product);
@@ -341,7 +341,7 @@ class _$ProductListContent extends ProductListContent {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -473,7 +473,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
-    required TResult Function(List<Product> products) fetchProductsByCategory,
+    required TResult Function(List<Product>? products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return fetchingCategories(categories);
@@ -485,7 +485,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return fetchingCategories?.call(categories);
@@ -497,7 +497,7 @@ class _$CategoriesListContent extends CategoriesListContent {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -564,7 +564,7 @@ abstract class $ProductsByCategoryCopyWith<$Res> {
   factory $ProductsByCategoryCopyWith(
           ProductsByCategory value, $Res Function(ProductsByCategory) then) =
       _$ProductsByCategoryCopyWithImpl<$Res>;
-  $Res call({List<Product> products});
+  $Res call({List<Product>? products});
 }
 
 /// @nodoc
@@ -586,7 +586,7 @@ class _$ProductsByCategoryCopyWithImpl<$Res>
       products == freezed
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<Product>?,
     ));
   }
 }
@@ -597,7 +597,7 @@ class _$ProductsByCategory extends ProductsByCategory {
   const _$ProductsByCategory(this.products) : super._();
 
   @override
-  final List<Product> products;
+  final List<Product>? products;
 
   @override
   String toString() {
@@ -627,7 +627,7 @@ class _$ProductsByCategory extends ProductsByCategory {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
-    required TResult Function(List<Product> products) fetchProductsByCategory,
+    required TResult Function(List<Product>? products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return fetchProductsByCategory(products);
@@ -639,7 +639,7 @@ class _$ProductsByCategory extends ProductsByCategory {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return fetchProductsByCategory?.call(products);
@@ -651,7 +651,7 @@ class _$ProductsByCategory extends ProductsByCategory {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -703,11 +703,11 @@ class _$ProductsByCategory extends ProductsByCategory {
 }
 
 abstract class ProductsByCategory extends RestApiState {
-  const factory ProductsByCategory(List<Product> products) =
+  const factory ProductsByCategory(List<Product>? products) =
       _$ProductsByCategory;
   const ProductsByCategory._() : super._();
 
-  List<Product> get products;
+  List<Product>? get products;
   @JsonKey(ignore: true)
   $ProductsByCategoryCopyWith<ProductsByCategory> get copyWith =>
       throw _privateConstructorUsedError;
@@ -780,7 +780,7 @@ class _$RestApiError extends RestApiError {
     required TResult Function() loading,
     required TResult Function(List<Product> product) fetchingProducts,
     required TResult Function(List<String>? categories) fetchingCategories,
-    required TResult Function(List<Product> products) fetchProductsByCategory,
+    required TResult Function(List<Product>? products) fetchProductsByCategory,
     required TResult Function(String? message) error,
   }) {
     return error(message);
@@ -792,7 +792,7 @@ class _$RestApiError extends RestApiError {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
   }) {
     return error?.call(message);
@@ -804,7 +804,7 @@ class _$RestApiError extends RestApiError {
     TResult Function()? loading,
     TResult Function(List<Product> product)? fetchingProducts,
     TResult Function(List<String>? categories)? fetchingCategories,
-    TResult Function(List<Product> products)? fetchProductsByCategory,
+    TResult Function(List<Product>? products)? fetchProductsByCategory,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {

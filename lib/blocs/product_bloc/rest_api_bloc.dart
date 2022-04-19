@@ -33,12 +33,13 @@ class RestApiBloc extends Bloc<RestApiEvent, RestApiState> {
     on<ProductsByCategoryEvent>((event, emit) async {
       try {
         emit(const RestApiState.loading());
-        final mList =
+        var mList =
             await _apiRepository?.fetchProductsByCategory(event.category);
-        emit(RestApiState.fetchProductsByCategory(mList!));
+
+        emit(RestApiState.fetchProductsByCategory(mList));
         print(mList.toString());
-        if (mList.first.error != null) {
-          emit(RestApiState.error(mList.first.error));
+        if (mList?.first.error != null) {
+          emit(RestApiState.error(mList?.first.error));
         }
       } on NetworkError {
         emit(const RestApiState.error("Fetching data error"));
