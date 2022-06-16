@@ -20,4 +20,4 @@ samples, guidance on mobile development, and a full API reference.
 ![Main Page](gitImages/main_store.jpg)
 ![Product List](gitImages/product_list.jpg)
 ![Product Detail](gitImages/product_detail.jpg)
-![Summary](gitImages/summary.jpg)
+![Summary](gitImages/summary.JPG)
