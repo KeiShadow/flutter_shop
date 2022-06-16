@@ -1,6 +1,7 @@
-# flutter_shop
+# Flutter Shop
 
-A new Flutter project.
+Flutter project, with api from https://fakestoreapi.com/
+Using with bloc and freezed
 
 ## Getting Started
 
